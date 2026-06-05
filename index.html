@@ -7,84 +7,42 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #002B45;
-  --blue: #0073CF;
-  --cyan: #00A9E0;
-  --digital: #00549F;
-  --amber: #F0AB00;
-  --red: #D52B1E;
-  --light: #f4f8fb;
-  --white: #ffffff;
-  --text: #1a2535;
-  --muted: #6b7f96;
-  --border: #dce6ef;
+  --navy: #002B45; --blue: #0073CF; --cyan: #00A9E0; --digital: #00549F;
+  --amber: #F0AB00; --red: #D52B1E; --light: #f4f8fb; --white: #ffffff;
+  --text: #1a2535; --muted: #6b7f96; --border: #dce6ef;
 }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html, body {
-  width: 100%;
-  height: 658px;
-  overflow: hidden;
-  font-family: 'DM Sans', sans-serif;
-  background: var(--light);
-  color: var(--text);
-}
-
-.wrapper {
-  width: 100%;
-  height: 658px;
-  display: flex;
-  flex-direction: column;
-  padding: 20px 24px;
-  gap: 14px;
-}
-
-.header-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
-}
+html, body { width: 100%; height: 658px; overflow: hidden; font-family: 'DM Sans', sans-serif; background: var(--light); color: var(--text); }
+.wrapper { width: 100%; height: 658px; display: flex; flex-direction: column; padding: 20px 24px; gap: 14px; }
+.header-row { display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
 .header-left { display: flex; align-items: center; gap: 12px; }
 .header-icon { width: 38px; height: 38px; background: #e0f4fb; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
 .header-title { font-size: 1.8rem; font-weight: 600; color: var(--navy); letter-spacing: -0.02em; }
 .header-sub { font-size: 1.05rem; color: var(--muted); margin-top: 1px; }
-
 .month-tabs { display: flex; gap: 6px; flex-shrink: 0; }
 .month-tab { padding: 9px 26px; border-radius: 8px; border: 1.5px solid var(--border); font-family: 'DM Sans', sans-serif; font-size: 1.1rem; font-weight: 500; color: var(--muted); background: var(--white); cursor: pointer; transition: all 0.2s; }
 .month-tab:hover { border-color: var(--blue); color: var(--blue); }
 .month-tab.active { background: var(--navy); color: var(--white); border-color: var(--navy); font-weight: 600; }
-
 .table-wrap { background: var(--white); border-radius: 14px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); overflow: hidden; flex: 1; display: flex; flex-direction: column; min-height: 0; }
 .table-scroll { overflow-y: auto; flex: 1; min-height: 0; }
 .table-scroll::-webkit-scrollbar { width: 6px; }
 .table-scroll::-webkit-scrollbar-track { background: transparent; }
 .table-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-
 .cal-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-.col-date { width: 12%; }
-.col-actions { width: 20%; }
-.col-order { width: 16%; }
-.col-notes { width: auto; }
-
+.col-date { width: 12%; } .col-actions { width: 20%; } .col-order { width: 16%; } .col-notes { width: auto; }
 .cal-table thead tr { position: sticky; top: 0; z-index: 2; }
 .cal-table th { background: var(--navy); color: var(--white); padding: 13px 24px; text-align: left; font-size: 0.92rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
 .cal-table td { padding: 13px 24px; border-bottom: 1px solid #f0f4f8; font-size: 1.1rem; vertical-align: middle; text-align: left; }
 .cal-table tbody tr:last-child td { border-bottom: none; }
 .cal-table tbody tr:hover td { background: #f7fafd; }
-
 .day-num { font-weight: 700; color: var(--navy); white-space: nowrap; font-size: 1.05rem; }
 .order-col { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
-
 .cal-badge { display: inline-flex; align-items: center; gap: 4px; padding: 5px 13px; border-radius: 20px; font-size: 0.88rem; font-weight: 600; margin: 2px 2px 2px 0; white-space: nowrap; color: #ffffff; }
 .badge-post    { background: #00A9E0; }
 .badge-digital { background: #00549F; }
 .badge-print   { background: #F0AB00; color: #3a2800; }
 .badge-video   { background: #D52B1E; }
-
 .notes-text { color: var(--navy); font-size: 1.2rem; line-height: 1.45; }
-
 .order-btn { display: inline-flex; align-items: center; gap: 3px; padding: 5px 14px; border-radius: 20px; font-size: 0.88rem; font-weight: 600; white-space: nowrap; background: var(--navy); color: #ffffff; text-decoration: none; transition: background 0.15s; cursor: pointer; }
 .order-btn:hover { background: var(--blue); }
 </style>
@@ -100,13 +58,12 @@ html, body {
       </div>
     </div>
     <div class="month-tabs">
-      <button class="month-tab active" onclick="switchMonth('may', this)">May</button>
-      <button class="month-tab" onclick="switchMonth('june', this)">June</button>
+      <button class="month-tab active" onclick="switchMonth('june', this)">June</button>
       <button class="month-tab" onclick="switchMonth('july', this)">July</button>
       <button class="month-tab" onclick="switchMonth('august', this)">August</button>
+      <button class="month-tab" onclick="switchMonth('september', this)">September</button>
     </div>
   </div>
-
   <div class="table-wrap">
     <div class="table-scroll">
       <table class="cal-table">
@@ -128,30 +85,6 @@ html, body {
 const EMAIL = 'MarketingTicket@dasacquisition.com';
 
 const calendarData = {
-  may: [
-    { date: 'Sat, May 2',  actions: ['post'], noOrder: true,    notes: 'Last Month\'s Stats for Closings.' },
-    { date: 'Mon, May 4',  actions: ['print'], notes: 'Time to order print marketing for Memorial Day.', printSubject: 'Memorial Day Print Marketing Order' },
-    { date: 'Tue, May 5',  actions: ['post'], postOrder: true,  notes: 'Cinco de Mayo post.', postSubject: 'Social Media Post — Cinco de Mayo' },
-    { date: 'Wed, May 6',  actions: ['post'], postOrder: true,  notes: 'Educational or content tip post.', postSubject: 'Social Media Post — Educational Content' },
-    { date: 'Thu, May 7',  actions: ['print'], notes: 'Order Monthly EDDM/Postcard Campaign.', printSubject: 'Monthly EDDM/Postcard Campaign Print Order' },
-    { date: 'Sat, May 9',  actions: ['digital'], notes: 'Create a single property site for any upcoming listings.' },
-    { date: 'Sun, May 10', actions: ['post'], postOrder: true,  notes: 'Post about Mother\'s Day.', postSubject: 'Social Media Post — Mother\'s Day' },
-    { date: 'Tue, May 12', actions: ['print'], notes: 'Last day to order print marketing for Memorial Day.', printSubject: 'Memorial Day Print Marketing Order' },
-    { date: 'Wed, May 13', actions: ['post','video'], postOrder: true, videoOrder: true, notes: 'Monthly Special Video — share on social.', postSubject: 'Social Media Post — Monthly Special Video', videoSubject: 'Video Order — Monthly Special' },
-    { date: 'Sat, May 16', actions: ['post'], postOrder: true,  notes: 'National Real Estate Agent Day post.', postSubject: 'Social Media Post — National Real Estate Agent Day' },
-    { date: 'Sun, May 17', actions: ['post'], postOrder: true,  notes: 'Get to Know Me post.', postSubject: 'Social Media Post — Get to Know Me' },
-    { date: 'Tue, May 19', actions: ['post'], postOrder: true,  notes: 'Educational content or tip post.', postSubject: 'Social Media Post — Educational Content' },
-    { date: 'Thu, May 21', actions: ['post'], noOrder: true,    notes: 'Monthly Event Post for Your City.' },
-    { date: 'Sat, May 23', actions: ['post'], postOrder: true,  notes: 'Why Hire a Realtor? post.', postSubject: 'Social Media Post — Why Hire a Realtor?' },
-    { date: 'Sun, May 24', actions: ['post'], postOrder: true,  notes: 'Post about Memorial Day.', postSubject: 'Social Media Post — Memorial Day' },
-    { date: 'Mon, May 25', actions: ['post'], postOrder: true,  notes: 'Memorial Day.', postSubject: 'Social Media Post — Memorial Day' },
-    { date: 'Tue, May 26', actions: ['print'], notes: 'Order print marketing for Father\'s Day.', printSubject: 'Father\'s Day Print Marketing Order' },
-    { date: 'Wed, May 27', actions: ['post'], noOrder: true,    notes: 'Community Spotlight post.' },
-    { date: 'Thu, May 28', actions: ['post'], postOrder: true,  notes: 'Post about current listings/weekend open houses.', postSubject: 'Social Media Post — Current Listings & Open Houses' },
-    { date: 'Fri, May 29', actions: ['post','video'], postOrder: true, videoOrder: true, notes: 'Buying and/or Selling Tips to Avoid — share on social.', postSubject: 'Social Media Post — Buying & Selling Tips', videoSubject: 'Video Order — Buying & Selling Tips' },
-    { date: 'Sat, May 30', actions: ['post'], noOrder: true,    notes: 'Monthly Event Post for Your City.' },
-    { date: 'Sun, May 31', actions: ['post'], postOrder: true,  notes: 'Keeping the Kids Busy This Summer post.', postSubject: 'Social Media Post — Keeping Kids Busy This Summer' },
-  ],
   june: [
     { date: 'Mon, Jun 1',  actions: ['print'], notes: 'Last Day to Order Print Marketing for Father\'s Day.', printSubject: 'Father\'s Day Print Marketing Order' },
     { date: 'Tue, Jun 2',  actions: ['post'], noOrder: true,    notes: 'Last Month\'s Stats for Closings.' },
@@ -208,8 +141,7 @@ const calendarData = {
     { date: 'Thu, Jul 31', actions: ['post'], postOrder: true,  notes: 'Reclaim Your Home post.', postSubject: 'Social Media Post — Reclaim Your Home' },
   ],
   august: [
-    { date: 'Sat, Aug 1',  actions: ['post'], postOrder: true,  notes: 'Post about current listings/weekend open houses.', postSubject: 'Social Media Post — Current Listings & Open Houses' },
-    { date: 'Fri, Aug 1',  actions: ['print'], notes: 'Order Monthly EDDM/Postcard Campaign.', printSubject: 'Monthly EDDM/Postcard Campaign Print Order' },
+    { date: 'Fri, Aug 1',  actions: ['post','print'], postOrder: true, notes: 'Post about current listings/weekend open houses. Order Monthly EDDM/Postcard Campaign.', postSubject: 'Social Media Post — Current Listings & Open Houses', printSubject: 'Monthly EDDM/Postcard Campaign Print Order' },
     { date: 'Mon, Aug 3',  actions: ['post'], noOrder: true,    notes: 'Last Month\'s Stats for Closings.' },
     { date: 'Tue, Aug 4',  actions: ['post'], postOrder: true,  notes: '"Back to School" Themed Post.', postSubject: 'Social Media Post — Back to School' },
     { date: 'Wed, Aug 5',  actions: ['post'], postOrder: true,  notes: 'Educational Content or Tip post.', postSubject: 'Social Media Post — Educational Content' },
@@ -229,7 +161,30 @@ const calendarData = {
     { date: 'Sat, Aug 29', actions: ['post'], postOrder: true,  notes: 'Post about current listings/weekend open houses.', postSubject: 'Social Media Post — Current Listings & Open Houses' },
     { date: 'Sun, Aug 30', actions: ['post'], noOrder: true,    notes: 'Community Spotlight post.' },
     { date: 'Mon, Aug 31', actions: ['post'], noOrder: true,    notes: 'Monthly Event Post for Your City.' },
-  ]
+  ],
+  september: [
+    { date: 'Tue, Sep 1',  actions: ['post'], noOrder: true,    notes: 'Last Month\'s Stats for Closings.' },
+    { date: 'Wed, Sep 2',  actions: ['post'], postOrder: true,  notes: 'Post about Labor Day on Social Media.', postSubject: 'Social Media Post — Labor Day' },
+    { date: 'Fri, Sep 4',  actions: ['print'], notes: 'Order Custom Campaign Package.', printSubject: 'Custom Campaign Package Print Order' },
+    { date: 'Fri, Sep 5',  actions: ['print'], notes: 'Order Monthly EDDM/Postcard Campaign.', printSubject: 'Monthly EDDM/Postcard Campaign Print Order' },
+    { date: 'Sat, Sep 6',  actions: ['post'], postOrder: true,  notes: 'Post about current listings/weekend open houses.', postSubject: 'Social Media Post — Current Listings & Open Houses' },
+    { date: 'Sun, Sep 7',  actions: ['post'], postOrder: true,  notes: 'Monthly Market Update post.', postSubject: 'Social Media Post — Monthly Market Update' },
+    { date: 'Tue, Sep 9',  actions: ['print'], notes: 'Fall Is in 2 Weeks — Order Your Seasonal Marketing.', printSubject: 'Fall Seasonal Marketing Print Order' },
+    { date: 'Wed, Sep 10', actions: ['digital'], notes: 'Create a Single Property Site for Any Upcoming Listings.' },
+    { date: 'Thu, Sep 11', actions: ['post'], postOrder: true,  notes: 'Educational Content or Tip post.', postSubject: 'Social Media Post — Educational Content' },
+    { date: 'Sat, Sep 13', actions: ['video'], videoOrder: true, notes: 'Post video content on social media: live or edited.', videoSubject: 'Video Order — Post Video Content' },
+    { date: 'Sun, Sep 14', actions: ['post'], postOrder: true,  notes: 'Post about current listings/weekend open houses.', postSubject: 'Social Media Post — Current Listings & Open Houses' },
+    { date: 'Tue, Sep 16', actions: ['post'], noOrder: true,    notes: 'Community Spotlight post.' },
+    { date: 'Wed, Sep 17', actions: ['post','video'], postOrder: true, videoOrder: true, notes: 'Buying and/or Selling Tips to Avoid — share on social.', postSubject: 'Social Media Post — Buying & Selling Tips', videoSubject: 'Video Order — Buying & Selling Tips' },
+    { date: 'Sat, Sep 20', actions: ['digital'], notes: 'Create a Lead Capture App for Any Upcoming Open Houses or Events.' },
+    { date: 'Mon, Sep 21', actions: ['post','video'], postOrder: true, videoOrder: true, notes: 'Monthly Special Video — share on social.', postSubject: 'Social Media Post — Monthly Special Video', videoSubject: 'Video Order — Monthly Special' },
+    { date: 'Tue, Sep 22', actions: ['post'], postOrder: true,  notes: 'First Day of Fall post.', postSubject: 'Social Media Post — First Day of Fall' },
+    { date: 'Wed, Sep 23', actions: ['post'], postOrder: true,  notes: 'Get to Know Me post.', postSubject: 'Social Media Post — Get to Know Me' },
+    { date: 'Thu, Sep 24', actions: ['post'], postOrder: true,  notes: 'Educational Content or Tip post.', postSubject: 'Social Media Post — Educational Content' },
+    { date: 'Mon, Sep 28', actions: ['post'], postOrder: true,  notes: 'Recent Closing Photos post.', postSubject: 'Social Media Post — Recent Closing Photos' },
+    { date: 'Tue, Sep 29', actions: ['post','video'], postOrder: true, videoOrder: true, notes: 'Fall Buying & Selling Tips — share on social.', postSubject: 'Social Media Post — Fall Buying & Selling Tips', videoSubject: 'Video Order — Fall Buying & Selling Tips' },
+    { date: 'Wed, Sep 30', actions: ['post','print'], postOrder: true, notes: 'The weather\'s getting cooler — a great time for doorhangers!', postSubject: 'Social Media Post — Fall Doorhangers', printSubject: 'Fall Doorhanger Campaign Print Order' },
+  ],
 };
 
 const badgeMap = {
@@ -261,7 +216,7 @@ function switchMonth(month, el) {
   renderCalendar(month);
 }
 
-renderCalendar('may');
+renderCalendar('june');
 </script>
 </body>
 </html>
